@@ -1,5 +1,6 @@
 ﻿using System;
 using Broker.System.Covers.Data;
+using Broker.System.Covers.Services;
 using Broker.System.Installers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ namespace Broker.System.Covers.Installers
             services.AddIdentityCore<IdentityUser>()
                 .AddEntityFrameworkStores<BrokerCoversDbContext>();
 
-            //services.AddScoped<ILimitService, LimitService>();
+            services.AddScoped<ICoverService, CoverService>();
         }
     }
 }

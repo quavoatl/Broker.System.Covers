@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Broker.System.Covers.Validation;
 using Microsoft.AspNetCore.Identity;
 
 namespace Broker.System.Domain
@@ -9,6 +10,7 @@ namespace Broker.System.Domain
     {
         [Key] public int CoverId { get; set; }
         public string BrokerId { get; set; }
+        [SupportedCovers]
         public string Type { get; set; }
         public double LimitMultiplier { get; set; }
 

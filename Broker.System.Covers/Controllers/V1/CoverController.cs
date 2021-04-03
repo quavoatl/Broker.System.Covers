@@ -47,6 +47,11 @@ namespace Broker.System.Controllers.V1
         [HttpPost(ApiRoutes.Cover.Create)]
         public async Task<IActionResult> Create([FromBody] CreateCoverRequest coverRequest)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(new {Messages = ModelState.Values.SelectMany(v => v.Errors)});
+            }
+            
             Cover limit = new Cover()
             {
                 BrokerId = HttpContext.GetUserId(),
@@ -56,10 +61,12 @@ namespace Broker.System.Controllers.V1
 
             var createdLimit = await _coverService.CreateAsync(limit);
 
+            if (createdLimit == null) return BadRequest(new {Message = "Cover already exists"});
+          
             var baseUrl = $"{HttpContext.Request.Scheme}://" + $"{HttpContext.Request.Host.ToUriComponent()}";
             var locationUri = baseUrl + "/" +
                               ApiRoutes.Cover.Get.Replace("{coverId}", createdLimit.Entity.CoverId.ToString());
-
+     
             return Created(locationUri, _mapper.Map<CoverResponse>(limit));
         }
 
