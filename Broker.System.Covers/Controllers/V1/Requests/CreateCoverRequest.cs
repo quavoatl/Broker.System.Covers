@@ -7,6 +7,7 @@ namespace Broker.System.Controllers.V1.Requests
     {
         [SupportedCovers]
         public string Type { get; set; }
+        [SupportedMultipliers]
         public double LimitMultiplier { get; set; }
     }
 }
