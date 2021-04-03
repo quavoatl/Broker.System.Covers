@@ -58,7 +58,7 @@ namespace Broker.System.Covers.Installers
                 .AddJwtBearer("Bearer", options =>
                 {
                     options.Authority = "https://localhost:5005";
-                    options.Audience = "broker_covers_rest_api";
+                    options.Audience = "broker_limits_rest_api";
 
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
@@ -76,6 +76,8 @@ namespace Broker.System.Covers.Installers
                     config.GetClaimsFromUserInfoEndpoint = true;
                     
                     config.Scope.Add(ClaimsHelpers.ROLES_KEY);
+                    config.Scope.Add("ApiOne");
+                    config.Scope.Add("broker_limits_rest_api");
                     config.ClaimActions.MapUniqueJsonKey(ClaimsHelpers.ROLE, ClaimsHelpers.ROLE, ClaimsHelpers.ROLE);
                     config.TokenValidationParameters.RoleClaimType = ClaimsHelpers.ROLE;
                 });
