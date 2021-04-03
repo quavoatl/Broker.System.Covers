@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.System.Covers", "Broker.System.Covers\Broker.System.Covers.csproj", "{1B5A632F-C350-45CF-A4BD-8A127E8B3C51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B5A632F-C350-45CF-A4BD-8A127E8B3C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B5A632F-C350-45CF-A4BD-8A127E8B3C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B5A632F-C350-45CF-A4BD-8A127E8B3C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B5A632F-C350-45CF-A4BD-8A127E8B3C51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
